@@ -1,0 +1,20 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+#grafico1_1,
+#grafico1_2 {
+  height: 500px;
+  width: 700px;
+}
+#grafico2,
+#grafico3_1,
+#grafico3_2 {
+  height: 350px;
+  width: auto;
+}
+
+#countplot1,
+#countplot2 {
+  height: 700px;
+}

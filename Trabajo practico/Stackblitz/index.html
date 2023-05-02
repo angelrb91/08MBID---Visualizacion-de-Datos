@@ -1,0 +1,248 @@
+<head>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+  crossorigin="anonymous"
+></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.2/d3plus.full.min.js"></script>
+</head>
+
+<div id="app">
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Análisis del mercado laboral de Ciencia de Datos en Estados Unidos</h1>
+  </div>
+  <div class="row">
+    <div class="flex-row">
+      <span class="fw-bold">Nombre: </span>
+      <span>Ángel Rodríguez Bobes</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="flex-row">
+      <span class="fw-bold">Fuente de los datos: </span>
+      <a href="https://www.kaggle.com/code/majidkhadim/data-science-salaries-analysis/input">Data Science Salaries Analysis</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="flex-row">
+      <span class="fw-bold">Url Stackblitz:</span>
+      <a href="https://js-wmjrfs.stackblitz.io" target="_blank"
+        >https://js-wmjrfs.stackblitz.io</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="flex-row">
+      <span class="fw-bold">Google Colab:</span>
+      <a
+        href="https://colab.research.google.com/drive/1oDDE3jJmPIdHGnnX1jnZKTUIpe0am24g?usp=sharing"
+        target="_blank"
+        >https://colab.research.google.com/drive/1oDDE3jJmPIdHGnnX1jnZKTUIpe0am24g?usp=sharing</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="flex-row">
+      <span class="fw-bold">Github:</span>
+      <a
+        href="https://github.com/angelrb91/08MBID---Visualizacion-de-Datos/tree/main/Trabajo%20practico"
+        target="_blank"
+        >https://github.com/angelrb91/08MBID---Visualizacion-de-Datos/tree/main/Trabajo%20practico</a
+      >
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+      <h2>1. Introducción</h2>
+  </div>
+  <div class="row">
+      <p>El mundo de la ciencia de datos ha sufrido una revolución en los últimos tiempos, cada vez se nencesitan más profesionales para cubrir los puestos de trabajo
+        que se crean año a año, y cada año surgen nuevos puestos para cubrir las necesidades que aparecen a la par que evoluciona la tecnología.
+      </p>
+      <br/>
+      <h6>1.1. Objetivo</h6>
+      <p>Este trabajo busca demostrar la evolución de la industria de la ciencia de datos en Estados Unidos en el último año, centrándose en los aspectos salariales y perfiles profesionales. Para ello se ha analizado un conjunto de datos con información relativa a los
+        puestos de trabajo de varias personas. Los datos analizados son los siguientes: 
+        <br/>
+      <ul>
+        <li>Año</li>
+        <li>Nivel de experiencia</li>
+        <li>Tipo de empleo</li>
+        <li>Puesto de trabajo</li>
+        <li>Salario en dólares</li>
+        <li>Residencia del empleado</li>
+        <li>Ubicación de la empresa</li>
+        <li>Tamaño de la empresa</li>
+        <li>Porcentaje de trabajo remoto</li>
+      </ul> 
+      </p>
+      <h6>1.2. Audiencia</h6>
+      <p>Dado que este es un trabajo académico, se ha enfocado su desarrollo como si se tratase de un informe sobre el estado del mercado que se ha de presentar a un directivo de la empresa EMPRESA FICTICIA S.L.</p>
+      <h6>1.3. Mensaje</h6>
+      <p>A lo largo del trabajo se presentarán una serie de gráficos y se tratará de sacar conclusiones sobre ellos respondiendo a las preguntas: 
+        <ul>
+          <li class="fw-bold">¿Han aumentado los salarios respecto al año 2022?</li>
+          <li class="fw-bold"> ¿Han aumentado los salarios proporcionalmente al nivel de experiencia respecto al año 2022?</li>
+          <li class="fw-bold">¿Ha cambiado la proporcion de perfiles según su nivel de experiencia respecto al año 2022?</li>
+          <li class="fw-bold">¿Han aparecido nuevos tipos de trabajo respecto al año 2022?</li>
+        </ul>
+      </p>
+  </div>
+  <br/>
+  <div class="row">
+    <h2>2. Informe</h2>
+<h4>2.1. Evolución de salario en el último año </h4>
+    <div class="row">
+      <div class="col-6">
+        <p>Dado el auge de la industria TIC en los últimos años, cabe esperar que los sueldos en esta industria crezcan a la par que lo hacen las oportunidades laborales en este campo.</p>
+        <p>En este gráfico se puede observar cómo los salarios se han incrementado aproximadamente un 6% en lo que va de año respecto al año 2022.</p>
+        </div>
+        <div class="col-6">
+          <iframe title="Sueldo Estados Unidos (2022-2023)" aria-label="Bar Chart" id="datawrapper-chart-NByem" src="https://datawrapper.dwcdn.net/NByem/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="882" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+          </script>
+          <h6>Gráfica 1. Salario medio de los empleados en el sector TIC en Estados Unidos (2022-2023) </h6>
+        </div>
+      </div>
+    </div>
+    <br/>
+  <div class="row">
+<h4>2.2. Comparación de salario por nivel de experiencia en el último año</h4>
+<div class="row">
+      <div class="col-6">
+        <div id="grafico2"></div>
+        <h6>Gráfica 2. Salario medio en el sector TIC de Estados Unidos distribuido según nivel de experiencia (2022-2023) </h6>
+      </div>
+      <div class="col-6">
+        <p>Es importante también comprobar que los salarios aumentan proporcionalmente entre los distintos niveles de experiencia.</p>
+        <p>En este gráfico se representa el salario medio anual agrupado por nivel de experiencia, se puede observar cómo las subidas más altas corresponden a personas con nivel intermedio y senior, representados en morado y amarillo respectivamente, mientras que la diferencia anual entre personas de nuevo acceso y que ocupan cargos de dirección son más pequeñas, representadas en rojo y naranja.</p>
+        <p>De este gráfico se podría deducir que la crisis laboral que están sufriendo las grandes tecnológicas americanas en el último año haya hecho que se priorice la retención de personas con estos perfiles frente a la contratación o la promoción de perfiles de nuevo acceso al mercado. Para esta representación se ha utilizado un diagrama de barras agrupadas que permite ver de forma sencilla la diferencia salarial entre los perfiles según nivel de experiencia. </p>
+      </div>
+</div>
+</div>
+<br/>
+<div class="row">
+<h4>2.3. Distribución de los puestos de trabajo según su nivel de experiencia en el último año</h4>
+<div class="row">
+    
+     <p>Como se ve en el gráfico anterior, parece que la crisis laboral afecta a los puestos ejecutivos y de nuevo acceso.</p>
+     <p>Para comprobar esta teoría se representa un gráfico de tarta en el que se ve la proporción de personas por nivel de experiencia dentro del total. </p>
+     <p>En el gráfico se puede ver que en realidad el número de personas que acceden al mercado laboral ha aumentado ligeramente, y se ve un aumento más grande en el sector que representa a los perfiles senior.</p>
+     <p>Si nos fijamos en la proporción, vemos que el porcentaje del diagrama que ocupan los perfiles intermedios disminuye respecto al año pasado, por lo que podría deducirse del diagrama una predisposición de las empresas de promocionar a estos perfiles.</p>
+     <br/>
+    <div class="row">
+      <div class="col-5">
+      <div id="grafico3_1"></div>
+      </div>
+      <div class="col-6">
+      <div id="grafico3_2"></div>
+      </div>
+      <h6 class="text-center">Gráfica 3. Comparación de la distribución por nivel de experiencia </h6>
+    </div>
+  </div>
+  </div>
+  <br/>
+<div class="row">
+<h4>2.4. Tipos de puestos de trabajo en ciencia de datos en el último año</h4>
+<div class="row">
+<div class=col-7>
+  <div id="grafico1_1"></div>
+  <br/>
+  <div id="grafico1_2"></div>
+  <h6>Gráfica 4. Comparación de la distribución de puestos de trabajo </h6>
+</div>
+<div class="col-5">
+  <p>A medida que avanza la industria de la ciencia de datos aparecen nuevos puestos laborales para cubrir la demanda que esto conlleva.</p>
+  <p>Para ilustar la aparición de nuevos puestos de trabajo se utiliza un treemap que muestra de manera gráfica la aparición de estos puestos y la proporción que ocupan dentro del total.</p>
+  <p>Si comparamos los gráficos de 2022 y 2023, vemos que aunque la mayor parte del mercado aún lo ocupa la ingeniería, la analítica y la ciencia de datos, han empezado a aparecer nuevos trabajo relacionados con el Deep Learning y la proporción de trabajos relacionados con la investigación ha aumentado de manera significativa. </p>
+</p>Podría deducirse de estos gráficos que la nueva revolución que está comenzando con la explosión de la Inteligencia artificial empieza a notarse en el mercado y aumenta la demanda de este tipo de perfiles más especializados. </p>
+  </div>
+</div>
+</div>
+<br/>
+<div class="row">
+  <h2>3. Metodología</h2>
+  <p>Para el desarrollo del informe se han generado gráficos utilizando la página web Datawrapper y la librería D3plus.js. Además, se ha utilizado la librería Seaborn de python para crear gráficos durante el análisis exploratorio del dataset. Esto se ha realizado para poder comprender los datos previos al análisis. Los gráficos realizados con Seaborn se adjuntan al final de la actividad, aunque se proporciona el enlace al cuaderno de Google Colab con el que se ha hecho la limpieza de datos y se han generado los archivos necesarios para cargar los mismos en los gráficos del informe.</p>
+  <p>Para el gráfico 1 se ha utilizado un diagrama de barras creado con Datawrapper, los datos han sido procesados en python para calcular el salario medio en el sector TIC agrupado por años. Una vez calculado, se exporta a un fichero .csv y se genera el gráfico desde la página web de Datawrapper.</p>
+  <p>Dado que en el resto del trabajo se utilizan gráficos generados por otras fuentes, se ha modificado el color por defecto para que todas las visualizaciones sean homogéneas.</p>
+  <p>Para el resto de gráficos del informe se ha utilizado la librería D3plus.js, ya que en casos como los gráficos 3 y 4, es necesario representar gran cantidad de información. En estos caso se aprovecha la interactividad que ofrece D3plus.js por defecto para ver los textos de los sectores que, por su tamaño, no se muestran.</p>
+  <p>Para los gráficos generados con esta librería, los datos son procesados en python y, una vez calculados, se exportan archivos JSON que lee el código JavaScript para cargar el resultado en el gráfico.</p>
+  <p>Como se ha mencionado anteriormente, se ha optado por usar la librería Seaborn de python para los gráficos usados en el análisis exploratorio de los datos, ya que es una librería que nos permite crear gráficos de manera ágil en python.</p>
+  <p>Dado que el mensaje de la visualización quiere transmitirse como si de un informe se tratase, se ha intentado, especialmente en el punto "2. Informe", estructurar la información y los gráficos intercalándolos entre sí de forma escalonada. Además, se han escogido los colores y la fuente de texto adecuados mediante maquetación usando estilos con Bootstrap para favorecer la lectura y que el mensaje se transmita de forma eficiente.</p>
+</div>
+<div class="row">
+  <h4>3.1. Procesamiento de los datos</h4>
+  <p>El conjunto de datos original incluye datos de varios países, sin embargo, durante el análisis exploratorio se ha visto medienate el uso de un countplot de seaborn que la mayor parte de ellos proceden de Estado Unidos y hacer el análisis que se pretende hacer en la tarea no habría sido muy informativo. </p>
+  <img id="countplot1" src="https://raw.githubusercontent.com/angelrb91/08MBID---Visualizacion-de-Datos/main/Trabajo%20practico/imagenes/countplot%20seaborn.png"></img>
+  <h6 class="text-center"> Gráfica 5. Número de elementos por país en el dataset</h6>
+<p>Una vez decidido que el análisis se hará sobre los datos de Estados Unidos, se comprueba mediante otro countplot si todos los años tienen un número significativo de elementos.</p>
+<img id="countplot2" src="https://raw.githubusercontent.com/angelrb91/08MBID---Visualizacion-de-Datos/main/Trabajo%20practico/imagenes/countplot%20datos%20por%20a%C3%B1o.png"></img>
+<h6 class="text-center">Gráfica 6. Número de elementos por año</h6>
+<p>La mayor parte de los elementos pertenece a 2022 y 2023 por lo que se decide hacer el análisis solo con los datos de estos años. Finalmente se comprueba mediante un histograme de Seaborn si la distribución de los datos relativos a los salarios es suficientemente equilibrada para considerar hacer el análisis.</p>
+<img src="https://raw.githubusercontent.com/angelrb91/08MBID---Visualizacion-de-Datos/main/Trabajo%20practico/imagenes/histograma%20salario.png"></img>
+<h6 class="text-center">Gráfica 7. Distribución del salario por años</h6>
+<p>Una vez seleccionados los datos, se cambian todos las abreviaturas que hay en las variables por un texto más descriptivo para mejorar la visualización, y se unifican los valores de la variable job_title ya que encontramos que hay varios valores que representan lo mismo con distinto nombre.</p>
+</div>
+<div class="row">
+<h2>4. Conclusiones</h2>
+<p>La visualización de datos supone un aspecto clave tanto en la comunicación de la información como en el análisis de la misma. Durante el desarrollo de la actividad se ha buscado seguir el proceso de analítica de datos desde la adquisición de éstos hasta la comunicación de conclusiones utilizando la visualización en gráficos. Se ha comprobado cómo el uso de visualizaciones durante la fase de análisis exploratorio del conjunto de datos permite, en muchos casos, realizar el preprocesado y la limpieza de datos de manera más rápida que mediante un análisis estadístico.</p>
+</div>
+<div class="row">
+  <h2>5. Limitaciones y trabajo futuro</h2>
+<p>El planteamiento inicial era hacer un análisis del mercado laboral de ciencia de datos a nivel global en los últimos años, pero dada la dificultad para encontrar datos de suficiente calidad para llevar a cabo este análisis, finalmente se ha acotado el análisis a Estados Unidos y los años 2022 y 2023.</p>
+<p>Como trabajo futuro sería interesante recopilar datos de otros países y en un rango más amplio de tiempo, de cara a poder utilizar visualizaciones más complejas como mapas cloropléticos que indiquen la densidad de trabajadores por países o visualizaciones interactivas que permitan seleccionar y comparar datos de distintos años.</p>
+<p>Inicialmente se planteó el uso de visualizaciones interactivas para la comparación de los datos por años, pero dado que finalmente solo se analizan dos años se consideró que una comparación interactiva aportaría una complejidad innecesaria y visualmente es más fácil la comparación si se utilizan gráficos de columnas estáticos donde se pueden ver las diferencias entre años directamente.</p>
+</div>
+</div>
+</div>
+<script>
+function showTreemap(year, id) {
+  $(id).empty();
+  d3.json(
+  'https://raw.githubusercontent.com/angelrb91/08MBID---Visualizacion-de-Datos/main/Trabajo%20practico/Dataset/trabajos_' +
+    year +
+    '.json',
+  function (data) {
+    var visualization = d3plus
+      .viz()
+      .container(id)
+      .data(data)
+      .type('tree_map')
+      .id('name')
+      .size('total')
+      .title('Trabajos relacionados con ciencia de datos en '+year)
+      .draw();
+  }
+);
+}
+function showDonutmap(year, id) {
+  d3.json(
+  'https://raw.githubusercontent.com/angelrb91/08MBID---Visualizacion-de-Datos/main/Trabajo%20practico/Dataset/experiencia_' +
+    year +
+    '.json',
+  function (data) {
+    var visualization = d3plus
+      .viz()
+      .container(id)
+      .data(data)
+      .type('pie')
+      .id('level')
+      .size("total")
+      .title("Distribución por nivel de experiencia en "+year)
+      .draw();
+  }
+);
+}
+showTreemap(2022, '#grafico1_1')
+showTreemap(2023, '#grafico1_2')
+showDonutmap(2022, '#grafico3_1')
+showDonutmap(2023, '#grafico3_2')
+</script>
